@@ -8,7 +8,7 @@ const Footer = () => {
           </p>
           
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} VersaSaaS. Built for businesses that think ahead.
+            © {new Date().getFullYear()} versaas. Built for businesses that think ahead.
           </p>
         </div>
       </div>
