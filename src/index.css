@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* San Francisco font - system font on macOS/iOS, fallback to system-ui */
+
+@layer base {
+  :root {
+    --background: 230 25% 5%;
+    --foreground: 210 20% 95%;
+
+    --card: 230 20% 8%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 230 20% 8%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 320 80% 65%;
+    --primary-foreground: 230 25% 5%;
+
+    --secondary: 230 15% 12%;
+    --secondary-foreground: 210 20% 85%;
+
+    --muted: 230 15% 15%;
+    --muted-foreground: 215 15% 55%;
+
+    --accent: 280 70% 60%;
+    --accent-foreground: 210 20% 95%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 230 15% 18%;
+    --input: 230 15% 15%;
+    --ring: 320 80% 65%;
+
+    --radius: 1rem;
+
+    /* Custom tokens */
+    --glass: 230 20% 10%;
+    --glass-border: 230 15% 25%;
+    --glow-pink: 320 80% 65%;
+    --glow-magenta: 300 75% 55%;
+    --glow-purple: 280 70% 50%;
+
+    /* Gradients */
+    --gradient-vortex: linear-gradient(135deg, hsl(320 80% 65% / 0.3), hsl(280 70% 50% / 0.2), hsl(300 75% 55% / 0.25));
+    --gradient-glass: linear-gradient(135deg, hsl(230 20% 12% / 0.8), hsl(230 20% 8% / 0.6));
+    --gradient-orb: radial-gradient(circle, hsl(320 80% 65%), hsl(280 70% 50%), hsl(300 75% 55%));
+
+    --sidebar-background: 230 25% 5%;
+    --sidebar-foreground: 210 20% 95%;
+    --sidebar-primary: 320 80% 65%;
+    --sidebar-primary-foreground: 230 25% 5%;
+    --sidebar-accent: 230 15% 12%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 230 15% 18%;
+    --sidebar-ring: 320 80% 65%;
+  }
+
+  .dark {
+    --background: 230 25% 5%;
+    --foreground: 210 20% 95%;
+
+    --card: 230 20% 8%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 230 20% 8%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 320 80% 65%;
+    --primary-foreground: 230 25% 5%;
+
+    --secondary: 230 15% 12%;
+    --secondary-foreground: 210 20% 85%;
+
+    --muted: 230 15% 15%;
+    --muted-foreground: 215 15% 55%;
+
+    --accent: 280 70% 60%;
+    --accent-foreground: 210 20% 95%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 230 15% 18%;
+    --input: 230 15% 15%;
+    --ring: 320 80% 65%;
+
+    --sidebar-background: 230 25% 5%;
+    --sidebar-foreground: 210 20% 95%;
+    --sidebar-primary: 320 80% 65%;
+    --sidebar-primary-foreground: 230 25% 5%;
+    --sidebar-accent: 230 15% 12%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 230 15% 18%;
+    --sidebar-ring: 320 80% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-glass/60 backdrop-blur-xl border border-glass-border/30 rounded-2xl;
+  }
+
+  .glass-panel-subtle {
+    @apply bg-glass/40 backdrop-blur-lg border border-glass-border/20 rounded-xl;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary;
+  }
+
+  .glow-pink {
+    box-shadow: 0 0 60px hsl(var(--glow-pink) / 0.3), 0 0 120px hsl(var(--glow-magenta) / 0.2);
+  }
+
+  .glow-orb {
+    box-shadow: 0 0 40px hsl(var(--glow-pink) / 0.5), 
+                0 0 80px hsl(var(--glow-magenta) / 0.3),
+                0 0 120px hsl(var(--glow-purple) / 0.2);
+  }
+
+  .font-display {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .animate-vortex {
+    animation: vortex 30s linear infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 3s ease-in-out infinite;
+  }
+
+  .animate-orb-idle {
+    animation: orb-idle 4s ease-in-out infinite;
+  }
+
+  .animate-orb-active {
+    animation: orb-active 0.8s ease-in-out infinite;
+  }
+
+  @keyframes vortex {
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      transform: rotate(180deg) scale(1.05);
+    }
+    100% {
+      transform: rotate(360deg) scale(1);
+    }
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes orb-idle {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 40px hsl(var(--glow-pink) / 0.4), 
+                  0 0 80px hsl(var(--glow-magenta) / 0.2);
+    }
+    50% {
+      transform: scale(1.02);
+      box-shadow: 0 0 50px hsl(var(--glow-pink) / 0.5), 
+                  0 0 100px hsl(var(--glow-magenta) / 0.3);
+    }
+  }
+
+  @keyframes orb-active {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 60px hsl(var(--glow-pink) / 0.6), 
+                  0 0 120px hsl(var(--glow-magenta) / 0.4);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 0 80px hsl(var(--glow-pink) / 0.7), 
+                  0 0 150px hsl(var(--glow-magenta) / 0.5);
+    }
+  }
+}
