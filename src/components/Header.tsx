@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import versaasLogo from "@/assets/versaas-logo.jpeg";
+import versaasLogo from "@/assets/versaas-logo.png";
 
 const Header = () => {
   return (
